@@ -12,5 +12,5 @@ DATABASE_URL = URL.create(
     database=settings.database_names
 )
 print(DATABASE_URL, settings.database_names)
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
