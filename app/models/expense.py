@@ -9,6 +9,7 @@ class Expense(Base):
     id = Column(Integer, primary_key=True, index=True)
     item = Column(String, nullable=False)
     amount = Column(Float, nullable=False)
+    category = Column(String, nullable=True)
     date = Column(Date, nullable=False)
     image_path = Column(String, nullable=True)
     owner_id = Column(Integer, ForeignKey("users.id"))

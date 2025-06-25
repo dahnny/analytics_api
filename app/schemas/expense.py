@@ -5,6 +5,7 @@ from datetime import datetime
 class ExpenseBase(BaseModel):
     item: str
     amount: float
+    category: str
     date: datetime
     image_path: str | None = None
     
@@ -22,8 +23,9 @@ class ExpenseResponse(ExpenseBase):
 class ExpenseUpdate(BaseModel):
     item: str | None = None
     amount: float | None = None
+    category: str | None = None
     date: datetime | None = None
     image_path: str | None = None
 
-    class Config:
+    class Config:  
         orm_mode = True

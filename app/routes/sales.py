@@ -51,11 +51,6 @@ def read_sales(
     current_user: User = Depends(get_current_user)
 ) -> List[SaleResponse]:
     sales = get_sales(db, current_user.id, item_name)
-    if not sales:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="No sales found"
-        )
     return sales
 
 @router.put("/{sale_id}", response_model=SaleResponse)

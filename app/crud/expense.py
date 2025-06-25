@@ -30,7 +30,7 @@ def update_expense(db: Session, expense_id: int, expense_update: ExpenseUpdate) 
     
     for key, value in expense_update.dict(exclude_unset=True).items():
         setattr(db_expense, key, value)
-    
+    print(f"Updating expense {expense_id} with {expense_update.dict(exclude_unset=True)}")  
     db.commit()
     db.refresh(db_expense)
     return db_expense

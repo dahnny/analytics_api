@@ -93,7 +93,7 @@ def delete_expense(
     expense_id: int,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
-) -> dict:
+):
     expense = get_expense_db(db, expense_id)
     if not expense or expense.owner_id != current_user.id:
         raise HTTPException(
@@ -107,4 +107,3 @@ def delete_expense(
             detail="Failed to delete expense"
         )
     
-    return {"detail": "Expense deleted successfully"}
